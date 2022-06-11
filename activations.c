@@ -14,19 +14,19 @@ double w(double *inputs, double *weights, int length) {
 }
 
 double tanh(double *inputs, double *weights, double bias, int length) {
+    double z = bias + w(inputs, weights, length);
 
+    return (exp(z) - exp(-1 * z)) / (exp(z) + exp(-1 * z));
 }
 
 double sigmoid(double *inputs, double *weights, double bias, int length) {
-    double P = bias;
-    P += w(inputs, weights, length);
+    double P = bias + w(inputs, weights, length);
 
     return 1 / (1 + exp(-1 * P));
 }
 
 double relu(double *inputs, double *weights, double bias, int length) {
-    double P = bias;
-    P += w(inputs, weights, length);
+    double P = bias + w(inputs, weights, length);
 
     return 0.0 > P ? 0.0 : P;
 }
