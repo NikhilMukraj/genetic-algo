@@ -30,3 +30,15 @@ double relu(double *inputs, double *weights, double bias, int length) {
 
     return 0.0 > P ? 0.0 : P;
 }
+
+struct layer{
+    int input_length;
+    int amount_of_neurons;
+    char activation;
+    double *weights;
+    double *bias;
+};
+
+int main(int argc, char *argv[]) {
+    // driver code
+}
