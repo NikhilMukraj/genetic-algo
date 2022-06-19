@@ -38,7 +38,3 @@ struct layer{
     double *weights;
     double *bias;
 };
-
-int main(int argc, char *argv[]) {
-    // driver code
-}
