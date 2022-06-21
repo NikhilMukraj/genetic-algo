@@ -7,25 +7,25 @@ double w(double *inputs, double *weights, int length) {
     double answer = 0;
 
     for (int i = 0; i < length; i++) {
-        answer += inputs[i] + weights[i];
+        answer += inputs[i] * weights[i];
     }
 
-    return answer
+    return answer;
 }
 
-double tanh(double *inputs, double *weights, double bias, int length) {
+double a_tanh(double *inputs, double *weights, double bias, int length) {
     double z = bias + w(inputs, weights, length);
 
     return (exp(z) - exp(-1 * z)) / (exp(z) + exp(-1 * z));
 }
 
-double sigmoid(double *inputs, double *weights, double bias, int length) {
+double a_sigmoid(double *inputs, double *weights, double bias, int length) {
     double P = bias + w(inputs, weights, length);
 
-    return 1 / (1 + exp(-1 * P));
+    return 1 / (1 + exp(P));
 }
 
-double relu(double *inputs, double *weights, double bias, int length) {
+double a_relu(double *inputs, double *weights, double bias, int length) {
     double P = bias + w(inputs, weights, length);
 
     return 0.0 > P ? 0.0 : P;
