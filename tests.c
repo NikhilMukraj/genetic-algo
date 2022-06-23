@@ -39,16 +39,31 @@ int main(int argc, char *argv[]) {
     struct layer sheet;
     sheet.input_len = 2;
     sheet.layer_len = 3;
+    sheet.activation = 's';
     init_weights(&sheet);
+    printf("first weights init\n");
+    init_biases(&sheet);
+    printf("first bias init\n");
 
-    double count;
     for (int i = 0; i < sheet.layer_len; i++) {
+        sheet.biases[i] = .1;
+        printf("bias init\n");
         for (int j = 0; j < sheet.input_len; j++) {
-            sheet.weights[i][j] = count;
+            sheet.weights[i][j] = .1;
+            printf("second weights init\n");
             printf("val: %f, ptr: %p\n", sheet.weights[i][j], sheet.weights[i]);
-            count++;
         }
     }
 
     // need to test layering
+
+    double inputs[] = {.2, .2};
+
+    double *result = output(&sheet, inputs);
+    for (int i = 0; i < sheet.layer_len; i++) {
+        printf("final result[%i]: %f\n", i, result[i]);
+    }
+
+    // equals ~0.465057
+    // seems to work
 }
