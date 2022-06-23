@@ -7,8 +7,10 @@ custom neural network architecture
 
 - [x] make c modules with each type of activation
 - [x] test activations
-- [x] make c activations hook up into nn
-- [x] test nn
+- [x] make c activations hook up into one another
+- [x] test layers
+- [ ] create nn
+- [ ] test nn
 - [ ] thread computation
 - [ ] test
 - [ ] model archetirure with string
