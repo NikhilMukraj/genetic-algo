@@ -33,7 +33,7 @@ void activation_test() {
    // activations work
 }
 
-int main(int argc, char *argv[]) {
+void test_layer() {
     //activation_test();
 
     struct layer sheet;
@@ -66,4 +66,9 @@ int main(int argc, char *argv[]) {
 
     // equals ~0.465057
     // seems to work
+}
+
+int main(int argc, char *argv[]) {
+    // next test creating a model
+    return 0;
 }
