@@ -20,4 +20,5 @@ custom neural network architecture
 
 ## helpful links
 
-- <https://stackoverflow.com/questions/47360113/compile-c-library-on-pip-install>
+- create package: <https://stackoverflow.com/questions/47360113/compile-c-library-on-pip-install>
+- more activations to add: <https://en.wikipedia.org/wiki/Activation_function>
