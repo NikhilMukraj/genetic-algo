@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "activations.h"
+#include "layers.c"
 
 
-int main(int argc, char *argv[]) {
+void activation_test() {
     /* 
     weights: .5, .4
     inputs: .2, .3
@@ -31,4 +31,24 @@ int main(int argc, char *argv[]) {
    printf("test relu activation output: %f\n", a_relu(inputs, weights, bias, length));
 
    // activations work
+}
+
+int main(int argc, char *argv[]) {
+    //activation_test();
+
+    struct layer sheet;
+    sheet.input_len = 2;
+    sheet.layer_len = 3;
+    init_weights(&sheet);
+
+    double count;
+    for (int i = 0; i < sheet.layer_len; i++) {
+        for (int j = 0; j < sheet.input_len; j++) {
+            sheet.weights[i][j] = count;
+            printf("val: %f, ptr: %p\n", sheet.weights[i][j], sheet.weights[i]);
+            count++;
+        }
+    }
+
+    // need to test layering
 }
