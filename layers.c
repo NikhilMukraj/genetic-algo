@@ -9,9 +9,10 @@ struct layer {
     double **weights;
     double *biases;
     char activation;
-};
+}; // layer of neurons
 
 void init_weights(struct layer *sheet) {
+    // creates 2d array for weights
     struct layer *temp_sheet;
     temp_sheet = (struct layer *) sheet;
     double **arr;
@@ -22,6 +23,7 @@ void init_weights(struct layer *sheet) {
 }
 
 void init_biases(struct layer *sheet) {
+    // creates 1d array for biases
     struct layer *temp_sheet;
     temp_sheet = (struct layer *) sheet;
     double *biases;
@@ -30,6 +32,7 @@ void init_biases(struct layer *sheet) {
 }
 
 double *output(struct layer *sheet, double *inputs) {
+    // calculates result of activation function given inputs and weights
     struct layer *temp_sheet;
     temp_sheet = (struct layer *) sheet;
 
