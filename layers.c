@@ -21,20 +21,31 @@ void init_weights(struct layer *sheet) {
     }
 }
 
-double *output(struct layer sheet, double *inputs) {
-    double *answer;
-    answer = malloc(sheet.layer_len * sizeof(double));
+void init_biases(struct layer *sheet) {
+    struct layer *temp_sheet;
+    temp_sheet = (struct layer *) sheet;
+    double *biases;
+    biases = malloc(temp_sheet->layer_len * sizeof(double));
+    temp_sheet->biases = biases;
+}
 
-    for (int i = 0; i < sheet.layer_len; i++) {
-        switch (sheet.activation) {
+double *output(struct layer *sheet, double *inputs) {
+    struct layer *temp_sheet;
+    temp_sheet = (struct layer *) sheet;
+
+    double *answer;
+    answer = malloc(temp_sheet->layer_len * sizeof(double));
+
+    for (int i = 0; i < temp_sheet->layer_len; i++) {
+        switch (temp_sheet->activation) {
         case 't':
-            answer[i] = a_tanh(inputs, sheet.weights[i], layer.biases[i])
+            answer[i] = a_tanh(inputs, temp_sheet->weights[i], temp_sheet->biases[i], temp_sheet->input_len);
             break;
         case 's':
-            answer[i] = a_sigmoid(inputs, sheet.weights[i], layer.biases[i])
+            answer[i] = a_sigmoid(inputs, temp_sheet->weights[i], temp_sheet->biases[i], temp_sheet->input_len);
             break;
         case 'r':
-            answer[i] = a_relu(inputs, sheet.weights[i], layer.biases[i])
+            answer[i] = a_relu(inputs, temp_sheet->weights[i], temp_sheet->biases[i], temp_sheet->input_len);
             break;
         }
     }
