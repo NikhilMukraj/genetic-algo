@@ -22,3 +22,4 @@ custom neural network architecture
 
 - create package: <https://stackoverflow.com/questions/47360113/compile-c-library-on-pip-install>
 - more activations to add: <https://en.wikipedia.org/wiki/Activation_function>
+- passing activation as function arg: <https://stackoverflow.com/questions/9410/how-do-you-pass-a-function-as-a-parameter-in-c#9413>
