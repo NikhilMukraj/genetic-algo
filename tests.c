@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "layers.c"
+#include "neuralnet.c"
 
 
 void activation_test() {
@@ -68,7 +68,33 @@ void test_layer() {
     // seems to work
 }
 
+void arc_test(char *arc) {
+    int size = (int) strlen(arc);
+    printf("strlen: %d\n", size);
+    
+    char *temp_string;
+    temp_string = malloc(size * sizeof(char));
+    for (int i = 0; i < size; i++) {
+        if (arc[i] >= '0' && arc[i] <= '9') {
+            strncat(temp_string, &arc[i], 1);
+            printf("%s\n", temp_string);
+        } else if (arc[i] == '|') {
+            memset(temp_string, 0, strlen(temp_string));
+            /*
+            if (arc[i-1] != 'i') {
+                printf("%s\n", temp_string);
+            } else {
+                printf("%d\n", atoi(temp_string));
+            }
+            temp_string = "";
+            */
+        }
+    }
+} 
+
 int main(int argc, char *argv[]) {
     // next test creating a model
-    return 0;
+    char arc[] = "31i|32r|63r|64r|21s|";
+    printf("%s\n", arc);
+    arc_test(arc);
 }

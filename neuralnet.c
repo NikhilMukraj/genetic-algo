@@ -33,7 +33,7 @@ struct nn create_nn(char *arc) {
     int layer_count;
     for (int i = 0; i < strlen(arc); i++) {
         if (arc[i] >= '0' && arc[i] <= '9') {
-            strcat(temp_string, arc[i]);
+            strncat(temp_string, &arc[i], 1);
         } else if (arc[i] == '|') {
             if (arc[i-1] != 'i') {
                 int layer_len = atoi(temp_string);
@@ -52,7 +52,7 @@ struct nn create_nn(char *arc) {
         }
     }
 
-    return;
+    return new_nn;
 } 
 
 /*
@@ -71,5 +71,5 @@ void network_init(struct nn *network, int randomized) {
 
 double *feedforward(struct nn *network, double *inputs) {
     // get prediction based on inputs
-    return;
+    return 0;
 }
