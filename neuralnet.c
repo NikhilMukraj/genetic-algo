@@ -31,10 +31,12 @@ struct nn create_nn(char *arc) {
     int arc_size = (int) strlen(arc);
 
     char *temp_string;
+    temp_string = malloc(1 * sizeof(char));
     int last_len;
     int layer_count;
     for (int i = 0; i < arc_size; i++) {
         if (arc[i] >= '0' && arc[i] <= '9') {
+            temp_string = (char *) realloc(temp_string, ((int) strlen(temp_string) + 1) * sizeof(char));
             strncat(temp_string, &arc[i], 1);
         } else if (arc[i] == '|') {
             if (arc[i-1] != 'i') {

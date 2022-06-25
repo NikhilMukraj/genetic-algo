@@ -73,9 +73,10 @@ void arc_test(char *arc) {
     printf("strlen: %d\n", size);
     
     char *temp_string;
-    temp_string = malloc(size * sizeof(char));
+    temp_string = malloc(1 * sizeof(char));
     for (int i = 0; i < size; i++) {
         if (arc[i] >= '0' && arc[i] <= '9') {
+            temp_string = (char *) realloc(temp_string, ((int) strlen(temp_string) + 1) * sizeof(char));
             strncat(temp_string, &arc[i], 1);
             printf("%s\n", temp_string);
         } else if (arc[i] == '|') {
