@@ -28,10 +28,12 @@ struct nn create_nn(char *arc) {
     }
     new_nn.layers = malloc(new_nn.len * sizeof(struct layer));
 
+    int arc_size = (int) strlen(arc);
+
     char *temp_string;
     int last_len;
     int layer_count;
-    for (int i = 0; i < strlen(arc); i++) {
+    for (int i = 0; i < arc_size; i++) {
         if (arc[i] >= '0' && arc[i] <= '9') {
             strncat(temp_string, &arc[i], 1);
         } else if (arc[i] == '|') {
@@ -48,7 +50,7 @@ struct nn create_nn(char *arc) {
             } else {
                 last_len = atoi(temp_string);
             }
-            temp_string = "";
+            memset(temp_string, 0, strlen(temp_string));
         }
     }
 
