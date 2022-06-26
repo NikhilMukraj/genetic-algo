@@ -34,7 +34,15 @@ class NeuralNetwork:
         # edit layer
         raise NotImplementedError()
 
-    def add_layer(self, layer_activation, layer_length, layer_input_length):
+    def add_layer(self, layer_activation=None, layer_length=None, layer_input_length=None, restr=None):
+        if restr and all(i is None for i in [layer_activation, length, layer_input_length]):
+            # use restr directly
+            pass
+        elif restr is None and not all(i is None for i in [layer_activation, length, layer_input_length]):
+            # use args
+            pass
+        else:
+            raise ValueError()
         # check if layer is first
         # edit layer if it is first
         raise NotImplementedError()
