@@ -40,12 +40,14 @@ struct nn create_nn(char *arc) {
             strncat(temp_string, &arc[i], 1);
         } else if (arc[i] == '|') {
             if (arc[i-1] != 'i') {
-                int layer_len = atoi(temp_string);
                 struct layer sheet;
-
-                sheet.layer_len = layer_len;
-                sheet.input_len = last_len;
                 sheet.activation = arc[i-1];
+                sheet.input_len = last_len;
+
+                int layer_len = atoi(temp_string);
+                sheet.layer_len = layer_len;
+
+                last_len = layer_len;
 
                 layer_count++;
                 new_nn.layers[layer_count] = sheet;
