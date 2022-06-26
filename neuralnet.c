@@ -58,6 +58,8 @@ struct nn create_nn(char *arc) {
         }
     }
 
+    free(temp_string);
+
     return new_nn;
 } 
 

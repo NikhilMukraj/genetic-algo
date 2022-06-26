@@ -89,6 +89,8 @@ void arc_test(char *arc) {
             }
         }
     }
+    
+    free(temp_string);
 } 
 
 int main(int argc, char *argv[]) {
