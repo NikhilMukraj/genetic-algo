@@ -93,9 +93,21 @@ void arc_test(char *arc) {
     free(temp_string);
 } 
 
-int main(int argc, char *argv[]) {
+void test_nn_creation() {
     // next test creating a model
-    char arc[] = "31i|32r|63r|64r|21s|";
-    printf("%s\n", arc);
-    arc_test(arc);
+    char arc[] = "3i|4r|6r|6r|2s|";
+    struct nn network = create_nn(arc);
+
+    printf("length: %i\n------------------\n", network.len);
+    for (int i = 0; i < network.len; i++) {
+        printf("input len: %i\n", network.layers[i].input_len);
+        printf("layer len: %i\n", network.layers[i].layer_len);
+        printf("activation: %c\n", network.layers[i].activation);
+        printf("------------------\n");
+    }
+}
+
+int main(int argc, char *argv[]) {
+    // test initialization
+    return 0;
 }
