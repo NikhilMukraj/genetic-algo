@@ -9,26 +9,40 @@ struct nn {
     int len;
 }; // array of layers
 
+/*
+use network_init(..) in create_nn(..)
+*/
+
+void network_init(struct nn *network, int randomized) {
+    if (randomized == 1) {
+        // generate network with weights and biases
+        // set to random numbers between -1 and 1
+        // check if weights already there if they are
+        // ignore and move to the next
+    } else {
+        // generate network with weights and biases of 0.0
+    }
+}
+
 struct nn create_nn(char *arc) {
     // create nn based on string
     // structure:
     // (int x)(char activation)|repeat
     // example
-    // 3i|3r|6r|6r|2s|
-    // nn with 4 layers, 3 input size, 3 relu neurons, 
+    // 3i|4r|6r|6r|2s|
+    // nn with 4 layers, 3 input size, 4 relu neurons, 
     // 6 relu neurons, 6 relu neurons, 2 sigmoid neurons
 
-    /*
-    this needs extensive testing
-    */
+    int arc_size = (int) strlen(arc);
 
     struct nn new_nn;
-    for (int i = 0; i < strlen(arc); i++) {
-        new_nn.len++;
+    new_nn.len = -1; // ignore the first and last as they dont indicate layers
+    for (int i = 0; i < arc_size; i++) {
+        if (arc[i] == '|') {
+            new_nn.len++;
+        }
     }
-    new_nn.layers = malloc(new_nn.len * sizeof(struct layer));
-
-    int arc_size = (int) strlen(arc);
+    new_nn.layers = malloc((new_nn.len - 1) * sizeof(struct layer));
 
     char *temp_string;
     temp_string = malloc(1 * sizeof(char));
@@ -50,7 +64,8 @@ struct nn create_nn(char *arc) {
                 last_len = layer_len;
 
                 layer_count++;
-                new_nn.layers[layer_count] = sheet;
+                
+                new_nn.layers[layer_count-1] = sheet;
             } else {
                 last_len = atoi(temp_string);
             }
@@ -58,23 +73,37 @@ struct nn create_nn(char *arc) {
         }
     }
 
-    free(temp_string);
-
     return new_nn;
 } 
 
-/*
-maybe swap these two once done creating both
-and then add use network_init(..) in create_nn(..)
-*/
+void add_layer(struct nn *network, char *arc_part) {
+    // test this and previous void funcs that edit structs
+    struct nn *temp_net;
+    temp_net = (struct nn *) network;
+    temp_net->layers = realloc(temp_net->layers, (temp_net->len) * sizeof(struct layer));
+    
+    int arc_p_len = (int) strlen(arc_p_len);
+    char *temp_string;
+    temp_string = malloc(1 * sizeof(char));
+    for (int i = 0; i < arc_p_len; i++) {
+         if (arc_part[i] >= '0' && arc_part[i] <= '9') {
+            temp_string = (char *) realloc(temp_string, ((int) strlen(temp_string) + 1) * sizeof(char));
+            strncat(temp_string, &arc_part[i], 1);
+        } else if (arc_part[i] == '|') {
+            struct layer sheet;
+            sheet.activation = arc_part[i-1];
+            sheet.input_len = temp_net->layers[temp_net->len-1].input_len;
 
-void network_init(struct nn *network, int randomized) {
-    if (randomized == 1) {
-        // generate network with weights and biases
-        // set to random numbers between -1 and 1
-    } else {
-        // generate network with weights and biases of 0.0
+            int layer_len = atoi(temp_string);
+            sheet.layer_len = layer_len;
+                
+            temp_net->layers[temp_net->len] = sheet;
+            
+            memset(temp_string, 0, strlen(temp_string));
+        }
     }
+
+    temp_net->len++;
 }
 
 double *feedforward(struct nn *network, double *inputs) {
