@@ -104,6 +104,7 @@ void add_layer(struct nn *network, char *arc_part) {
     }
 
     temp_net->len++;
+    // make sure this all writes to correct struct
 }
 
 double *feedforward(struct nn *network, double *inputs) {
