@@ -54,3 +54,11 @@ class NeuralNetwork:
         # +--------------+
         # repeat until gone through all layers
         raise NotImplementedError()
+
+    def save(self, filename):
+        # save to json
+        raise NotImplementedError()
+
+    def load(self, filename):
+        # load from json
+        raise NotImplementedError()
