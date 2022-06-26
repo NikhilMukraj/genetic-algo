@@ -78,17 +78,15 @@ void arc_test(char *arc) {
         if (arc[i] >= '0' && arc[i] <= '9') {
             temp_string = (char *) realloc(temp_string, ((int) strlen(temp_string) + 1) * sizeof(char));
             strncat(temp_string, &arc[i], 1);
-            printf("%s\n", temp_string);
         } else if (arc[i] == '|') {
+            int len_to_use = atoi(temp_string);
+            printf("%i\n", len_to_use);
             memset(temp_string, 0, strlen(temp_string));
-            /*
             if (arc[i-1] != 'i') {
-                printf("%s\n", temp_string);
+                printf("use last len\n");
             } else {
-                printf("%d\n", atoi(temp_string));
+                printf("special case\n");
             }
-            temp_string = "";
-            */
         }
     }
 } 
