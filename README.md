@@ -9,14 +9,24 @@ custom neural network architecture
 - [x] test activations
 - [x] make c activations hook up into one another
 - [x] test layers
-- [ ] create nn
-- [ ] test nn
+- [x] create nn
+- [x] test nn
+- [ ] create init function
+- [ ] test
+- [ ] add and edit layers (maybe delete)
+- [ ] test
+- [ ] save and load nn
 - [ ] thread computation
 - [ ] test
-- [ ] model archetirure with string
-- [ ] test
+- [x] model archetirure with string
+- [x] test
 - [ ] create python wrapper
+- [ ] create nn objection
+- [ ] make everything interfaceable
+- [ ] allow user to add activation functions
 - [ ] rewrite ga from python into c
+- [ ] test all python code
+- [ ] code up some examples
 
 ## helpful links
 
