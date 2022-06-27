@@ -10,7 +10,7 @@ struct nn {
     int len;
 }; // array of layers
 
-double randfrom(double min, double max)  {
+double rand_double(double min, double max)  {
     double range = (max - min); 
     double div = RAND_MAX / range;
     return min + (rand() / div);
@@ -25,15 +25,21 @@ void network_init(struct nn *network, int randomized) {
 
     struct nn *temp_net;
     temp_net = (struct nn *) network;
+
     if (randomized == 1) {
         // generate network with weights and biases
         // set to random numbers between -1 and 1
         for (int i = 0; i < temp_net->len; i++) {
-            for (int j = 0; j < temp_net->layers[0].layer_len; j++) {
-                
+            init_weights(&temp_net->layers[i]);
+            init_biases(&temp_net->layers[i]);
+
+            for (int j = 0; j < temp_net->layers[i].layer_len; j++) {
+                temp_net->layers[i].biases[j] = rand_double(-1.0, 1.0);
+                for (int k = 0; k < temp_net->layers[i].input_len; k++) {
+                    temp_net->layers[i].weights[j][k] = rand_double(-1.0, 1,0);
+                }
             }
         }
-
     } else if (randomized == 0) {
         // generate network with weights and biases of 0.0
     } else {
