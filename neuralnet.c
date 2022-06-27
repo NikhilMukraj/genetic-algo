@@ -142,3 +142,13 @@ double *feedforward(struct nn *network, double *inputs) {
     // get prediction based on inputs
     return 0;
 }
+
+void save(struct nn network, char *filename) {
+    // save file to json
+}
+
+struct nn load_from(char *filename) {
+    // load from json file
+    struct nn load_nn;
+    return load_nn;
+}
