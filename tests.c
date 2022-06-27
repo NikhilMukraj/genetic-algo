@@ -109,5 +109,18 @@ void test_nn_creation() {
 
 int main(int argc, char *argv[]) {
     // test initialization
-    return 0;
+    srand(time(NULL));
+
+    char arc[] = "3i|4r|6r|6r|2s|";
+    struct nn network = create_nn(arc);
+
+    network_init(&network, 0);
+
+    for (int i = 0; i < network.len; i++) {
+        for (int j = 0; j < network.layers[i].layer_len; j++) {
+            for (int k = 0; k < network.layers[i].input_len; k++) {
+                printf("layer %i and weight %i: %f\n", i, j, network.layers[i].weights[j][k]);
+            }
+        }
+    }
 }
