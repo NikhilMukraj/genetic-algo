@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "layers.c"
 
 
@@ -9,18 +10,34 @@ struct nn {
     int len;
 }; // array of layers
 
+double randfrom(double min, double max)  {
+    double range = (max - min); 
+    double div = RAND_MAX / range;
+    return min + (rand() / div);
+}
+
 /*
 use network_init(..) in create_nn(..)
 */
 
 void network_init(struct nn *network, int randomized) {
+    srand(time(NULL));
+
+    struct nn *temp_net;
+    temp_net = (struct nn *) network;
     if (randomized == 1) {
         // generate network with weights and biases
         // set to random numbers between -1 and 1
-        // check if weights already there if they are
-        // ignore and move to the next
-    } else {
+        for (int i = 0; i < temp_net->len; i++) {
+            for (int j = 0; j < temp_net->layers[0].layer_len; j++) {
+                
+            }
+        }
+
+    } else if (randomized == 0) {
         // generate network with weights and biases of 0.0
+    } else {
+        printf("Invalid randomized argument of '%i\n'", randomized);
     }
 }
 
