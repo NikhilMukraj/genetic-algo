@@ -42,6 +42,10 @@ void network_init(struct nn *network, int randomized) {
         }
     } else if (randomized == 0) {
         // generate network with weights and biases of 0.0
+        for (int i = 0; i < temp_net->len; i++) {
+            init_weights(&temp_net->layers[i]);
+            init_biases(&temp_net->layers[i]);
+        }
     } else {
         printf("Invalid randomized argument of '%i\n'", randomized);
     }
