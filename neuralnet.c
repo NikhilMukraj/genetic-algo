@@ -103,6 +103,10 @@ struct nn create_nn(char *arc) {
     return new_nn;
 } 
 
+void edit_layer(struct nn *network, int layer, char *arc_part) {
+    // edit layer based on string and position
+}
+
 void add_layer(struct nn *network, char *arc_part) {
     // test this and previous void funcs that edit structs
     struct nn *temp_net;
