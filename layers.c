@@ -6,8 +6,8 @@
 struct layer {
     int input_len;
     int layer_len;
-    double **weights;
-    double *biases;
+    double **weights; // each neuron has an array of weights attached to it
+    double *biases; // each neuron only needs one bias
     char activation;
 }; // layer of neurons
 
