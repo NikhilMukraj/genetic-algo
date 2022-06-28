@@ -53,7 +53,7 @@ void layer_init(struct nn *network, int layer_num, int randomized) {
     temp_net = (struct nn *) network;
 
     if (layer_num >= temp_net->len || layer_num < 0) {
-        prtinf("Invalid layer number\n");
+        printf("Invalid layer number\n");
         return;
     }
 
@@ -138,7 +138,15 @@ void add_layer(struct nn *network, char *arc_part) {
     // test this and previous void funcs that edit structs
     struct nn *temp_net;
     temp_net = (struct nn *) network;
-    temp_net->layers = realloc(temp_net->layers, (temp_net->len) * sizeof(struct layer));
+    printf("size: %li\n", (temp_net->len) * sizeof(struct layer *));
+    
+    // copy array over maybe?
+    struct layer *layers;
+    layers = malloc(temp_net->len * sizeof(struct layer *));
+    for (int i = 0; i < temp_net->len; i++) {
+        layers[i] = temp_net->layers[i];
+    }
+    temp_net->layers = layers;
     
     int arc_p_len = (int) strlen(arc_part);
     char *temp_string;
