@@ -120,5 +120,11 @@ int main(int argc, char *argv[]) {
 
     add_layer(&network, "1s|");
 
-    printf("len: %i\n", network.len);
+    printf("length: %i\n------------------\n", network.len);
+    for (int i = 0; i < network.len; i++) {
+        printf("input len: %i\n", network.layers[i].input_len);
+        printf("layer len: %i\n", network.layers[i].layer_len);
+        printf("activation: %c\n", network.layers[i].activation);
+        printf("------------------\n");
+    }
 }
