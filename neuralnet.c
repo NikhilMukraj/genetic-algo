@@ -21,8 +21,6 @@ use network_init(..) in create_nn(..)
 */
 
 void network_init(struct nn *network, int randomized) {
-    srand(time(NULL));
-
     struct nn *temp_net;
     temp_net = (struct nn *) network;
 
