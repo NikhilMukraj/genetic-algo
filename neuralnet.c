@@ -48,6 +48,36 @@ void network_init(struct nn *network, int randomized) {
     }
 }
 
+void layer_init(struct nn *network, int layer_num, int randomized) {
+    struct nn *temp_net;
+    temp_net = (struct nn *) network;
+
+    if (layer_num >= temp_net->len || layer_num < 0) {
+        prtinf("Invalid layer number\n");
+        return;
+    }
+
+    if (randomized == 1) {
+        // generate layer with weights and biases
+        // set to random numbers between -1 and 1
+        init_weights(&temp_net->layers[layer_num]);
+        init_biases(&temp_net->layers[layer_num]);
+
+        for (int i = 0; i < temp_net->layers[layer_num].layer_len; i++) {
+            temp_net->layers[layer_num].biases[i] = rand_double(-1, 1);
+            for (int j = 0; j < temp_net->layers[layer_num].input_len; j++) {
+                temp_net->layers[layer_num].weights[i][j] = rand_double(-1, 1);
+            }
+        }
+    } else if (randomized == 0) {
+        // generate network with weights and biases of 0.0
+        init_weights(&temp_net->layers[layer_num]);
+        init_biases(&temp_net->layers[layer_num]);
+    } else {
+        printf("Invalid randomized argument of '%i\n'", randomized);
+    }
+}
+
 struct nn create_nn(char *arc) {
     // create nn based on string
     // structure:
