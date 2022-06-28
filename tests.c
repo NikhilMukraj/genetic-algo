@@ -116,11 +116,9 @@ int main(int argc, char *argv[]) {
 
     network_init(&network, 1);
 
-    for (int i = 0; i < network.len; i++) {
-        for (int j = 0; j < network.layers[i].layer_len; j++) {
-            for (int k = 0; k < network.layers[i].input_len; k++) {
-                printf("layer %i and weight %i: %f\n", i, j, network.layers[i].weights[j][k]);
-            }
-        }
-    }
+    printf("%i\n", network.len);
+
+    add_layer(&network, "1s|");
+
+    printf("len: %i\n", network.len);
 }
