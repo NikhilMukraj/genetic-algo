@@ -127,4 +127,6 @@ int main(int argc, char *argv[]) {
         printf("activation: %c\n", network.layers[i].activation);
         printf("------------------\n");
     }
+
+    layer_init(&network, network.len - 1 , 1);
 }
