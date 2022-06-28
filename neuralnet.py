@@ -5,20 +5,21 @@ import wrapper
 def checkValidArc(string):
     valid_arc = r'^(\d+i\|)(\d+[a-hj-zA-Z]\|)+$'
     if re.search(valid_arc, string):
-        return True
+        return
     else:
-        return False
+        raise ValueError(f'{string} is an invalid architecture')
 
 def checkValidArcP(string):
     valid_arc_p = r'^(\d+i\|)$'
     if re.search(valid_arc_p, string):
-        return True
+        return
     else:
-        return False
+        raise ValueError(f'{string} is an invalid architecture')
 
 class NeuralNetwork:
     def __init__(self, arc=None, randomized=False):
         if arc is not None:
+            checkValidArc(arc)
             # use archetiture
             if randomized:
                 # random init
@@ -36,6 +37,7 @@ class NeuralNetwork:
 
     def add_layer(self, layer_activation=None, layer_length=None, layer_input_length=None, restr=None):
         if restr and all(i is None for i in [layer_activation, length, layer_input_length]):
+            checkValidArcP(restr)
             # use restr directly
             pass
         elif restr is None and not all(i is None for i in [layer_activation, length, layer_input_length]):
