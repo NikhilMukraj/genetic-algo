@@ -11,8 +11,8 @@ custom neural network architecture
 - [x] test layers
 - [x] create nn
 - [x] test nn
-- [ ] create init function
-- [ ] test
+- [x] create init function
+- [x] test
 - [ ] add and edit layers (maybe delete)
 - [ ] test
 - [ ] save and load nn
