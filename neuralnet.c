@@ -10,7 +10,7 @@ struct nn {
     int len;
 }; // array of layers
 
-double rand_double(double min, double max)  {
+double rand_d(double min, double max)  {
     double range = (max - min); 
     double div = RAND_MAX / range;
     return min + (rand() / div);
@@ -32,7 +32,7 @@ void network_init(struct nn *network, int randomized) {
             init_biases(&temp_net->layers[i]);
 
             for (int j = 0; j < temp_net->layers[i].layer_len; j++) {
-                temp_net->layers[i].biases[j] = rand_double(-1.0, 1.0);
+                temp_net->layers[i].biases[j] = rand_d(-1.0, 1.0);
                 for (int k = 0; k < temp_net->layers[i].input_len; k++) {
                     temp_net->layers[i].weights[j][k] = rand_double(-1.0, 1,0);
                 }
@@ -111,7 +111,7 @@ void add_layer(struct nn *network, char *arc_part) {
     temp_net = (struct nn *) network;
     temp_net->layers = realloc(temp_net->layers, (temp_net->len) * sizeof(struct layer));
     
-    int arc_p_len = (int) strlen(arc_p_len);
+    int arc_p_len = (int) strlen(arc_part);
     char *temp_string;
     temp_string = malloc(1 * sizeof(char));
     for (int i = 0; i < arc_p_len; i++) {
