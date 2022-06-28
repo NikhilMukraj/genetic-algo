@@ -140,9 +140,9 @@ void add_layer(struct nn *network, char *arc_part) {
     temp_net = (struct nn *) network;
     printf("size: %li\n", (temp_net->len) * sizeof(struct layer *));
     
-    // copy array over maybe?
+    // using realloc runs an error dont try that 
     struct layer *layers;
-    layers = malloc(temp_net->len * sizeof(struct layer *));
+    layers = malloc(temp_net->len * sizeof(struct layer));
     for (int i = 0; i < temp_net->len; i++) {
         layers[i] = temp_net->layers[i];
     }
@@ -158,7 +158,7 @@ void add_layer(struct nn *network, char *arc_part) {
         } else if (arc_part[i] == '|') {
             struct layer sheet;
             sheet.activation = arc_part[i-1];
-            sheet.input_len = temp_net->layers[temp_net->len-1].input_len;
+            sheet.input_len = temp_net->layers[temp_net->len-1].layer_len;
 
             int layer_len = atoi(temp_string);
             sheet.layer_len = layer_len;
