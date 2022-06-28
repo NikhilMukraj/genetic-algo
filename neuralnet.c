@@ -130,8 +130,16 @@ struct nn create_nn(char *arc) {
     return new_nn;
 } 
 
-void edit_layer(struct nn *network, int layer, char *arc_part) {
+void edit_layer(struct nn *network, int layer, char *arc_part, int randomized) {
     // edit layer based on string and position
+    // dont edit preexisting weights
+    if (randomized == 1) {
+
+    } else if (randomized == 0) {
+        
+    } else {
+        printf("Invalid randomized argument of '%i\n'", randomized);
+    }
 }
 
 void add_layer(struct nn *network, char *arc_part) {
