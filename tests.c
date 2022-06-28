@@ -114,7 +114,7 @@ int main(int argc, char *argv[]) {
     char arc[] = "3i|4r|6r|6r|2s|";
     struct nn network = create_nn(arc);
 
-    network_init(&network, 0);
+    network_init(&network, 1);
 
     for (int i = 0; i < network.len; i++) {
         for (int j = 0; j < network.layers[i].layer_len; j++) {
