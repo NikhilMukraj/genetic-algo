@@ -107,7 +107,7 @@ void test_nn_creation() {
     }
 }
 
-int main(int argc, char *argv[]) {
+void add_layer_test() {
     // test initialization
     srand(time(NULL));
 
@@ -129,4 +129,9 @@ int main(int argc, char *argv[]) {
     }
 
     layer_init(&network, network.len - 1 , 1);
+}
+
+int main(int argc, char *argv[]) {
+    // test edit layer function
+    return 0;
 }
