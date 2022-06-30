@@ -24,6 +24,13 @@
 - standardize functions between the two
 - use within genetic algo population
 
+### c main
+
+- take all components
+- place them into a singular file
+  - leave potential for more languages to be used (r, julia maybe)
+- remove testing code
+
 ## py wrapper
 
 - wrapper converts python vars into c types
