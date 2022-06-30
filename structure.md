@@ -2,8 +2,6 @@
 
 ## c backend
 
-- - -
-
 ### neural network
 
 - - -
@@ -43,15 +41,11 @@
 
 ## py wrapper
 
-- - -
-
 - wrapper converts python vars into c types
 - wrapper handles errors
 - wrapper allows for more activation functions to be created
 
 ## py main
-
-- - -
 
 - allows for neural network to be initialized in c
 - lets user run genetic algo
