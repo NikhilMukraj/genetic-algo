@@ -4,6 +4,8 @@
 
 ### neural network
 
+---
+
 - first create activation functions
 - activation will have 3 parameters
   - weights, bias, input
@@ -13,6 +15,8 @@
 
 ### genetic algorithm
 
+---
+
 - crossover function
 - mutation
   - allow for activation to be mutated
@@ -20,11 +24,15 @@
 
 ### threading
 
+---
+
 - compatible with windows or posix
 - standardize functions between the two
 - use within genetic algo population
 
 ### c main
+
+---
 
 - take all components
 - place them into a singular file
