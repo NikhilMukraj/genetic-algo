@@ -2,22 +2,27 @@
 
 ## c backend
 
-- neural network:
-  - first create activation functions
-  - activation will have 3 parameters
-    - weights, bias, input
-  - activation functions will make up layers
-  - layer is a struct that takes size of layer and weights/biases
-  - neural network is composed of these layers
-- genetic algorithm:
-  - crossover function
-  - mutation
-    - allow for activation to be mutated
-  - allow for early stopping by analyzing rate of change
-- threading:
-  - compatible with windows or posix
-  - standardize functions between the two
-  - use within genetic algo population
+### neural network
+
+- first create activation functions
+- activation will have 3 parameters
+  - weights, bias, input
+- activation functions will make up layers
+- layer is a struct that takes size of layer and weights/biases
+- neural network is composed of these layers
+
+### genetic algorithm
+
+- crossover function
+- mutation
+  - allow for activation to be mutated
+- allow for early stopping by analyzing rate of change
+
+### threading
+
+- compatible with windows or posix
+- standardize functions between the two
+- use within genetic algo population
 
 ## py wrapper
 
