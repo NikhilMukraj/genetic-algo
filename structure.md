@@ -13,8 +13,11 @@
   - crossover function
   - mutation
     - allow for activation to be mutated
-  - allow for population to be threaded
   - allow for early stopping by analyzing rate of change
+- threading:
+  - compatible with windows or posix
+  - standardize functions between the two
+  - use within genetic algo population
 
 ## py wrapper
 
