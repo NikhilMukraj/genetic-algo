@@ -31,8 +31,8 @@ class NeuralNetwork:
             pass
         raise NotImplementedError()
 
-    def edit_layer(self, layer_number, layer_activation, layer_length):
-        # edit layer
+    def edit_activation(self, layer_number, layer_activation):
+        # edit layer activation
         raise NotImplementedError()
 
     def add_layer(self, layer_activation=None, layer_length=None, layer_input_length=None, restr=None):
