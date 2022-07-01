@@ -132,6 +132,5 @@ void add_layer_test() {
 }
 
 int main(int argc, char *argv[]) {
-    // test edit layer function
     return 0;
 }
