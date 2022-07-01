@@ -132,5 +132,6 @@ void add_layer_test() {
 }
 
 int main(int argc, char *argv[]) {
+    // check if feedforward works
     return 0;
 }
