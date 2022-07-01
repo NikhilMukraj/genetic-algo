@@ -187,6 +187,7 @@ double *feedforward(struct nn *network, double *inputs) {
 
 void save(struct nn network, char *filename) {
     // save file to json
+    // struct to json to file
 }
 
 struct nn load_from(char *filename) {
