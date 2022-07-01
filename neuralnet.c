@@ -169,8 +169,20 @@ void add_layer(struct nn *network, char *arc_part) {
 }
 
 double *feedforward(struct nn *network, double *inputs) {
+    struct nn *temp_net;
+    temp_net = (struct nn *) network;
+
+    double *ans;
     // get prediction based on inputs
-    return 0;
+    for (int i = 0; i < temp_net->len; i++) {
+        // change memory sizes accordingly
+        ans = realloc(ans, temp_net->layers[i].layer_len * sizeof(double));
+        ans = output(&temp_net->layers[i], inputs);
+        inputs = realloc(inputs, temp_net->layers[i].layer_len * sizeof(double));
+        inputs = ans;
+    }
+
+    return ans;
 }
 
 void save(struct nn network, char *filename) {
