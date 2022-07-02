@@ -131,7 +131,18 @@ void add_layer_test() {
     layer_init(&network, network.len - 1 , 1);
 }
 
-int main(int argc, char *argv[]) {
+void test_feedforward() {
     // check if feedforward works
-    return 0;
+    
+    char arc[] = "1i|2s|2s|3s|";
+    struct nn network = create_nn(arc);
+
+    network_init(&network, 0);
+
+    double inputs[] = {0};
+    double *out = feedforward(&network, inputs);
+
+    for (int i = 0; i < 3; i++) {
+        printf("%f\n", out[i]);
+    }
 }
