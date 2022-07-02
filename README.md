@@ -15,9 +15,8 @@ custom neural network architecture
 - [x] test
 - [x] add and edit layers
 - [x] test
-- [ ] feedforward
-- [ ] test
-- [ ] save and load nn
+- [x] feedforward
+- [x] test
 - [ ] thread computation
 - [ ] test
 - [x] model archetirure with string
@@ -25,6 +24,8 @@ custom neural network architecture
 - [ ] create python wrapper
 - [ ] create nn objection
 - [ ] make everything interfaceable
+- [ ] save and load nn in python
+- [ ] test
 - [ ] allow user to add activation functions
 - [ ] rewrite ga from python into c
 - [ ] test all python code
