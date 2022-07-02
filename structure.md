@@ -44,6 +44,7 @@
 - wrapper converts python vars into c types
 - wrapper handles errors
 - wrapper allows for more activation functions to be created
+- allows save/load
 
 ## py main
 
