@@ -41,15 +41,15 @@ double *output(struct layer *sheet, double *inputs) {
 
     for (int i = 0; i < temp_sheet->layer_len; i++) {
         switch (temp_sheet->activation) {
-        case 't':
-            answer[i] = a_tanh(inputs, temp_sheet->weights[i], temp_sheet->biases[i], temp_sheet->input_len);
-            break;
-        case 's':
-            answer[i] = a_sigmoid(inputs, temp_sheet->weights[i], temp_sheet->biases[i], temp_sheet->input_len);
-            break;
-        case 'r':
-            answer[i] = a_relu(inputs, temp_sheet->weights[i], temp_sheet->biases[i], temp_sheet->input_len);
-            break;
+            case 't':
+                answer[i] = a_tanh(inputs, temp_sheet->weights[i], temp_sheet->biases[i], temp_sheet->input_len);
+                break;
+            case 's':
+                answer[i] = a_sigmoid(inputs, temp_sheet->weights[i], temp_sheet->biases[i], temp_sheet->input_len);
+                break;
+            case 'r':
+                answer[i] = a_relu(inputs, temp_sheet->weights[i], temp_sheet->biases[i], temp_sheet->input_len);
+                break;
         }
     }
 
