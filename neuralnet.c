@@ -172,14 +172,10 @@ double *feedforward(struct nn *network, double *inputs) {
     struct nn *temp_net;
     temp_net = (struct nn *) network;
 
-    double *ans;
+    double *ans = inputs;
     // get prediction based on inputs
     for (int i = 0; i < temp_net->len; i++) {
-        // change memory sizes accordingly
-        ans = realloc(ans, temp_net->layers[i].layer_len * sizeof(double));
-        ans = output(&temp_net->layers[i], inputs);
-        inputs = realloc(inputs, temp_net->layers[i].layer_len * sizeof(double));
-        inputs = ans;
+        ans = output(&temp_net->layers[i], ans);
     }
 
     return ans;
