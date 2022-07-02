@@ -146,3 +146,8 @@ void test_feedforward() {
         printf("%f\n", out[i]);
     }
 }
+
+int main(int argc, char *argv[]) {
+    // test saving
+    return 0;
+}
