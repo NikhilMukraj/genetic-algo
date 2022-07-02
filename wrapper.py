@@ -9,3 +9,9 @@ def toPyArray(arr, length):
 
 def getNetworkStruct(args):
     pass
+
+def load_nn(filename):
+    pass
+
+def save_nn(filename):
+    pass
