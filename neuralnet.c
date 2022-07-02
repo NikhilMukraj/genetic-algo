@@ -180,14 +180,3 @@ double *feedforward(struct nn *network, double *inputs) {
 
     return ans;
 }
-
-void save(struct nn network, char *filename) {
-    // save file to json
-    // struct to json to file
-}
-
-struct nn load_from(char *filename) {
-    // load from json file
-    struct nn load_nn;
-    return load_nn;
-}
