@@ -1,6 +1,13 @@
 import ctypes
 
 
+#https://stackoverflow.com/questions/24640817/python-ctypes-definition-for-c-struct
+class LayerStruct():
+    pass
+
+class NNStruct():
+    pass
+
 def toCDoubleArray(arr):
     return (ctypes.c_double * len(arr))(*arr)
 
