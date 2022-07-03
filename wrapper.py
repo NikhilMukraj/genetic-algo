@@ -3,6 +3,10 @@ import os
 # all of this needs testing
 
 
+def init_c():
+    # init so file
+    pass
+
 #https://stackoverflow.com/questions/24640817/python-ctypes-definition-for-c-struct
 #https://doc.sagemath.org/html/en/thematic_tutorials/numerical_sage/ctypes_examples.html
 class LayerStruct(ctypes.Structure):
