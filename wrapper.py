@@ -1,12 +1,15 @@
 import ctypes
+import os
+# all of this needs testing
 
 
 #https://stackoverflow.com/questions/24640817/python-ctypes-definition-for-c-struct
-class LayerStruct():
-    pass
+#https://doc.sagemath.org/html/en/thematic_tutorials/numerical_sage/ctypes_examples.html
+class LayerStruct(ctypes.Structure):
+    _fields_ = []
 
-class NNStruct():
-    pass
+class NNStruct(ctypes.Structure):
+    _fields_ = []
 
 def toCDoubleArray(arr):
     return (ctypes.c_double * len(arr))(*arr)
