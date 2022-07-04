@@ -18,7 +18,8 @@ class LayerStruct(ctypes.Structure):
                 ('activation', ctypes.c_char)]
 
 class NNStruct(ctypes.Structure):
-    _fields_ = []
+    _fields_ = [('layers', ctypes.POINTER(LayerStruct)),
+                ('len', ctypes.c_int)]
 
 def toCDoubleArray(arr):
     return (ctypes.c_double * len(arr))(*arr)
