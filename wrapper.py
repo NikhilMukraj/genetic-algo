@@ -4,8 +4,16 @@ import os
 
 
 def init_c():
-    # init so file
-    pass
+    path = os.path.dirname(os.path.abspath(__file__))
+    try:
+        lib = ctypes.CDLL(path + '\\neuralnet.so')
+    except FileNotFoundError:
+        try:
+            lib = ctypes.CDLL(path + '/neuralnet.so')
+        except:
+            raise FileNotFoundError('Cannot find neuralnet.so')
+    
+    return lib
 
 #https://stackoverflow.com/questions/24640817/python-ctypes-definition-for-c-struct
 #https://doc.sagemath.org/html/en/thematic_tutorials/numerical_sage/ctypes_examples.html
