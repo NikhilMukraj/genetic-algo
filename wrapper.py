@@ -7,7 +7,7 @@ def init_c():
     path = os.path.dirname(os.path.abspath(__file__))
     try:
         lib = ctypes.CDLL(path + '\\neuralnet.so')
-    except FileNotFoundError:
+    except OSError:
         try:
             lib = ctypes.CDLL(path + '/neuralnet.so')
         except:
