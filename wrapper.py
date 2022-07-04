@@ -29,10 +29,22 @@ class NNStruct(ctypes.Structure):
     _fields_ = [('layers', ctypes.POINTER(LayerStruct)),
                 ('len', ctypes.c_int)]
 
+def toCDouble(value):
+    return ctypes.c_double(value)
+
+def toCInt(value):
+    return ctypes.c_int(value)
+
+def toCChar(value):
+    return ctypes.c_char(value)
+
+def CValtoPyValue(c_value):
+    return c_value.value
+
 def toCDoubleArray(arr):
     return (ctypes.c_double * len(arr))(*arr)
 
-def toPyArray(arr, length):
+def CDoubletoPyArray(arr, length):
     return ctypes.cast(length, ctypes.POINTER(ctypes.c_int * length)).contents # need to test
 
 def getNetworkStruct(args):
