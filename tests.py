@@ -9,4 +9,5 @@ weights = w.toCDoubleArray([0, 0])
 bias = w.toCDouble(bias)
 length = w.toCInt(length)
 
-print(lib.sigmoid(inputs, weights, bias, length))
+answer = lib.sigmoid(inputs, weights, bias, length)
+print(w.CDoubletoPyArray(answer, length))
