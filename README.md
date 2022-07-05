@@ -7,6 +7,8 @@ custom neural network architecture
 
 - [x] make c modules with each type of activation
 - [x] test activations
+- [ ] droput
+- [ ] test dropout
 - [x] make c activations hook up into one another
 - [x] test layers
 - [x] create nn
