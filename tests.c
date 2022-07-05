@@ -3,7 +3,7 @@
 #include "neuralnet.c"
 
 
-void activation_test() {
+int main(int argc, char *argv[]) {
     /* 
     weights: .5, .4
     inputs: .2, .3
@@ -11,19 +11,17 @@ void activation_test() {
     len: 2
     */
 
-   int length = 2;
+   int length = 1;
 
    double *inputs;
    inputs = malloc(length * sizeof(double));
-   inputs[0] = .2;
-   inputs[1] = .3;
+   inputs[0] = 1;
 
    double *weights;
    weights = malloc(length * sizeof(double));
-   weights[0] = .5;
-   weights[1] = .4;
+   weights[0] = 1;
 
-   double bias = .1;
+   double bias = 0;
 
    printf("test w output: %f\n", w(inputs, weights, length));
    printf("test sigmoid activation output: %f\n", a_sigmoid(inputs, weights, bias, length));
