@@ -73,13 +73,16 @@ def double2ArrayToPointer(arr, shape):
     return arr_ptr
 
 def checkLayerValid(layer):
+    # shape of weights:
+    # arr of pointers shape = layer_len
+    # pointers shape = input_len
     raise NotImplementedError
 
 def getNetworkStruct(args):
-    pass
+    raise NotImplementedError 
 
 def load_nn(filename):
-    pass
+    raise NotImplementedError
 
 def save_nn(filename):
-    pass
+    raise NotImplementedError
