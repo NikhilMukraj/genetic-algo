@@ -72,6 +72,9 @@ def double2ArrayToPointer(arr, shape):
 
     return arr_ptr
 
+def checkLayerValid(layer):
+    raise NotImplementedError
+
 def getNetworkStruct(args):
     pass
 
