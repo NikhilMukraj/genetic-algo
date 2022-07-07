@@ -36,7 +36,10 @@ def toCInt(value):
     return ctypes.c_int(value)
 
 def toCChar(value):
-    return ctypes.c_char(value)
+    try:
+        return ctypes.c_char(value)
+    except TypeError:
+        return ctypes.c_char(ord(value))
 
 def CValtoPyValue(c_value):
     return c_value.value
@@ -45,7 +48,29 @@ def toCDoubleArray(arr):
     return (ctypes.c_double * len(arr))(*arr)
 
 def CDoubletoPyArray(arr, length):
-    return ctypes.cast(length, ctypes.POINTER(ctypes.c_double * length)).contents() # need to test
+    py_arr = []
+    for i in range(length):
+        py_arr.append(arr[i])
+    
+    return py_arr
+
+def double2ArrayToPointer(arr, shape):
+    """
+    shape = (n, m)
+    """
+    ARR_DIMX = ctypes.c_double * arr.shape[1]
+    ARR_DIMY = ctypes.POINTER(ctypes.c_double) * arr.shape[0]
+
+    arr_ptr = ARR_DIMY()
+
+    for i, row in enumerate(arr):
+        arr_ptr[i] = ARR_DIMX()
+
+        for j, val in enumerate(row):
+            arr_ptr[i][j] = val
+
+
+    return arr_ptr
 
 def getNetworkStruct(args):
     pass
