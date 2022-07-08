@@ -16,6 +16,29 @@ def checkValidArcP(string):
     else:
         raise ValueError(f'{string} is an invalid architecture')
 
+class Layer:
+    def __init__(self, arc=None, randomized=False):
+        if arc is not None:
+            checkValidArc(arc)
+            # use archetiture
+            if randomized:
+                # random init
+                pass
+            else:
+                pass
+        else:
+            # init empty layer
+            pass
+        raise NotImplementedError()
+
+    def __repr__(self):
+        # +--------------+
+        # | activation:  |
+        # | layer input: |
+        # | layer len:   |
+        # +--------------+
+        raise NotImplementedError()
+
 class NeuralNetwork:
     def __init__(self, arc=None, randomized=False):
         if arc is not None:
