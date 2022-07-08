@@ -29,6 +29,4 @@ layer.weights = w.double2ArrayToPointer(weights, (2,3))
 layer.biases = w.toCDoubleArray([1, 1, 3])
 layer.activation = w.toCChar('r')
 
-for i in range(2):
-    for j in range(3):
-        print(layer.weights[i][j])
+print(c.sizeof(layer.weights)/c.sizeof(layer.weights[0]))
