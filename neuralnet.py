@@ -19,7 +19,7 @@ def checkValidArcP(string):
 class Layer:
     def __init__(self, arc=None, randomized=False):
         if arc is not None:
-            checkValidArc(arc)
+            checkValidArcP(arc)
             # use archetiture
             if randomized:
                 # random init
