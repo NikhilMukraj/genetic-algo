@@ -33,6 +33,22 @@ custom neural network architecture
 - [ ] test all python code
 - [ ] code up some examples
 
+## documentation
+
+### C Structs and Functions
+
+- Reminder most C structs and functions are accessible from Python
+
+#### Activation Functions
+
+#### Layer Struct and Layer Functions
+
+#### Neural Network Struct and Functions
+
+### Python Classes and Methods
+
+#### Neural Network Class
+
 ## helpful links
 
 - create package: <https://stackoverflow.com/questions/47360113/compile-c-library-on-pip-install>
