@@ -69,14 +69,16 @@ def double2ArrayToPointer(arr, shape):
         for j, val in enumerate(row):
             arr_ptr[i][j] = val
 
-
     return arr_ptr
 
-def checkLayerValid(layer):
-    # shape of weights:
-    # arr of pointers shape = layer_len
-    # pointers shape = input_len
-    raise NotImplementedError
+def writeToLayer(layer, arr, shape):
+    """
+    shape = (n,m)
+    """
+    if layer.layer_len == n and layer.input_len == m:
+        layer.weights = double2ArrayToPointer(arr, shape)
+    else:
+        raise ValueError(f'Weights with shape of {shape}')
 
 def getNetworkStruct(args):
     raise NotImplementedError 
