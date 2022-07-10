@@ -79,12 +79,3 @@ def writeToLayer(layer, arr, shape):
         layer.weights = double2ArrayToPointer(arr, shape)
     else:
         raise ValueError(f'Weights with shape of {shape}')
-
-def getNetworkStruct(args):
-    raise NotImplementedError 
-
-def load_nn(filename):
-    raise NotImplementedError
-
-def save_nn(filename):
-    raise NotImplementedError
