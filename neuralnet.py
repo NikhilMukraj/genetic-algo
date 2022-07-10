@@ -17,9 +17,9 @@ def checkValidArcP(string):
         raise ValueError(f'{string} is an invalid architecture')
 
 class Layer:
-    def __init__(self, arc=None, randomized=False):
-        if arc is not None:
-            checkValidArcP(arc)
+    def __init__(self, arcp=None, randomized=False):
+        if arcp is not None:
+            checkValidArcP(arcp)
             # use archetiture
             if randomized:
                 # random init
@@ -29,6 +29,12 @@ class Layer:
         else:
             # init empty layer
             pass
+        raise NotImplementedError()
+    
+    def getLayerStructFromArc(self, arcp):
+        raise NotImplementedError()
+    
+    def getLayerStructFromSpecs(self, input_len, layer_len, activation):
         raise NotImplementedError()
 
     def __repr__(self):
@@ -54,7 +60,7 @@ class NeuralNetwork:
             pass
         raise NotImplementedError()
 
-    def getNetworkStruct(self, args):
+    def getNetworkStructFromArc(self, arc):
         raise NotImplementedError 
 
     def edit_activation(self, layer_number, layer_activation):
