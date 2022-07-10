@@ -54,6 +54,9 @@ class NeuralNetwork:
             pass
         raise NotImplementedError()
 
+    def getNetworkStruct(self, args):
+        raise NotImplementedError 
+
     def edit_activation(self, layer_number, layer_activation):
         # edit layer activation
         raise NotImplementedError()
