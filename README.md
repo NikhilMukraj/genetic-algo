@@ -74,6 +74,26 @@ custom neural network architecture
 
 #### Neural Network Struct and Functions
 
+- `nn`
+  - Array of `layer` structs
+  - `int` length
+
+- `network_init(struct nn *network, int randomized)`
+  - Initializes empty arrays of weights and biases from array of `layer`s
+
+- `struct nn create_nn(char *arc)`
+  - Generates an `nn` struct based on a given string architecture
+  - String architecture looks like the following:
+    - `"xi|xa|"` where x is any `int` and a is any valid activation function
+    - `"xa|"` is repeated for each layer in `nn` struct
+
+- `add_layer(struct nn *network, char *arc_part)`
+  - Adds a `layer` struct to `nn`'s array of `layer`s
+  - `*arc_part` must be in the form of `"xa|"`
+
+- `feedforward(struct nn *network, double *inputs)`
+  - Calculates output of network given a set of inputs in a `double` array
+
 ### Python Classes and Methods
 
 #### Neural Network Class
