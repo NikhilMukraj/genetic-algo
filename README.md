@@ -41,6 +41,12 @@ custom neural network architecture
 
 #### Activation Functions
 
+- `a_relu(double *inputs, double *weights, double bias, int length)` Returns the ReLU function of the given weights and biases as a `double`
+
+- `a_sigmoid(double *inputs, double *weights, double bias, int length)` Returns the sigmoid function of the given weights and biases as a `double`
+
+- `double a_tanh(double *inputs, double *weights, double bias, int length)` Returns the hyperbolic tangent function of the given weights and biases as a `double`
+
 #### Layer Struct and Layer Functions
 
 #### Neural Network Struct and Functions
