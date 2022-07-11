@@ -41,13 +41,36 @@ custom neural network architecture
 
 #### Activation Functions
 
-- `a_relu(double *inputs, double *weights, double bias, int length)` Returns the ReLU function of the given weights and biases as a `double`
+- `a_relu(double *inputs, double *weights, double bias, int length)`
+  - Returns the ReLU function of the given weights and biases as a `double`
 
-- `a_sigmoid(double *inputs, double *weights, double bias, int length)` Returns the sigmoid function of the given weights and biases as a `double`
+- `a_sigmoid(double *inputs, double *weights, double bias, int length)`
+  - Returns the sigmoid function of the given weights and biases as a `double`
 
-- `double a_tanh(double *inputs, double *weights, double bias, int length)` Returns the hyperbolic tangent function of the given weights and biases as a `double`
+- `double a_tanh(double *inputs, double *weights, double bias, int length)`
+  - Returns the hyperbolic tangent function of the given weights and biases as a `double`
 
 #### Layer Struct and Layer Functions
+
+- `layer`
+  - Struct
+  - `int` input length
+  - `int` length of the layer
+  - `double` array of biases
+  - 2 dimensional `double` array of weights
+  - `char` representing activation type
+
+- `init_weights(struct layer *sheet)`
+  - Void
+  - Generates a 2 dimensional empty array of `double`s for the `layer` struct
+
+- `init_biases(struct layer *sheet)`
+  - Void
+  - Generates an empty array of `double`s for the `layer` struct
+
+- `output(struct layer *sheet, double *inputs)`
+  - Returns a double array
+  - Uses activation from `layer` to calculate the output given an array of `double`s
 
 #### Neural Network Struct and Functions
 
