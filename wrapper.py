@@ -80,5 +80,8 @@ def writeToLayer(layer, arr, shape):
     else:
         raise ValueError(f'Weights with shape of {shape}')
 
+def init_weights(lib, layer, randomized):
+    raise NotImplementedError
+
 def output(lib, layer, inputs):
     return lib.output(ctypes.POINTER(layer), toCDoubleArray(inputs))
