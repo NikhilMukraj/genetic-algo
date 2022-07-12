@@ -83,5 +83,8 @@ def writeToLayer(layer, arr, shape):
 def init_weights(lib, layer, randomized):
     raise NotImplementedError
 
+def init_bias(lib, layer, randomized):
+    raise NotImplementedError
+
 def output(lib, layer, inputs):
     return lib.output(ctypes.POINTER(layer), toCDoubleArray(inputs))
