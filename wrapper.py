@@ -79,3 +79,6 @@ def writeToLayer(layer, arr, shape):
         layer.weights = double2ArrayToPointer(arr, shape)
     else:
         raise ValueError(f'Weights with shape of {shape}')
+
+def output(lib, layer, inputs):
+    return lib.output(ctypes.POINTER(layer), toCDoubleArray(inputs))
