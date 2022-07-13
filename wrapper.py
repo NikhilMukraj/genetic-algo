@@ -84,7 +84,7 @@ def init_weights(lib, layer, randomized):
     lib.init_weights(ctypes.POINTER(layer), toCInt(randomized))
 
 def init_bias(lib, layer, randomized):
-    raise NotImplementedError
+    lib.init_bias(ctypes.POINTER(layer), toCInt(randomized))
 
 def output(lib, layer, inputs):
     return lib.output(ctypes.POINTER(layer), toCDoubleArray(inputs))
