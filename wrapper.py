@@ -81,6 +81,8 @@ def writeToLayer(layer, arr, shape):
         raise ValueError(f'Weights with shape of {shape}')
 
 def init_weights(lib, layer, randomized):
+    if randomized not in [0, 1]:
+        raise ValueError(f'{randomized} is not a valid argument')
     lib.init_weights(ctypes.POINTER(layer), toCInt(randomized))
 
 def init_bias(lib, layer, randomized):
