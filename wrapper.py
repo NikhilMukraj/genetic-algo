@@ -92,3 +92,9 @@ def init_bias(lib, layer, randomized):
 
 def output(lib, layer, inputs):
     return lib.output(ctypes.POINTER(layer), toCDoubleArray(inputs))
+
+def network_init(lib, nn, randomized):
+    if randomized not in [0, 1]:
+        raise ValueError(f'{randomized} is not a valid argument')
+    lib.network(ctypes.POINTER(nn), toCInt(randomized))
+
