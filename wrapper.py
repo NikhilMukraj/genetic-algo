@@ -105,5 +105,5 @@ def layer_init(lib, nn, layer_num, randomized):
         raise ValueError(f'{layer_num} is not a valid argument')
     lib.layer_init(ctypes.POINTER(nn), toCInt(layer_num), toCInt(randomized))
 
-
-
+def create_nn(lib, arc):
+    lib.create_nn(arc.encode())
