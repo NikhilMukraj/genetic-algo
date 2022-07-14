@@ -106,4 +106,7 @@ def layer_init(lib, nn, layer_num, randomized):
     lib.layer_init(ctypes.POINTER(nn), toCInt(layer_num), toCInt(randomized))
 
 def create_nn(lib, arc):
-    lib.create_nn(arc.encode())
+    return lib.create_nn(arc.encode())
+
+def add_layer(lib, nn, arc_part):
+    lib.add_layer(ctypes.POINTER(nn), arc_part.encode())
