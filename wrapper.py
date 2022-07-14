@@ -1,6 +1,7 @@
 import ctypes
 import os
 # all of this needs testing
+# refactor with restype and argtype
 
 
 def init_c():
