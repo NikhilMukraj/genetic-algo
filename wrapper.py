@@ -84,24 +84,24 @@ def writeToLayer(layer, arr, shape):
 def init_weights(lib, layer, randomized):
     if randomized not in [0, 1]:
         raise ValueError(f'{randomized} is not a valid argument')
-    lib.init_weights.argtype = [ctypes.POINTER(layer), toCInt(randomized)]
+    lib.init_weights.argtype = [ctypes.POINTER(layer), ctypes.c_int]
     lib.init_weights(layer, randomized)
 
 def init_biases(lib, layer, randomized):
     if randomized not in [0, 1]:
         raise ValueError(f'{randomized} is not a valid argument')
-    lib.init_biases.argtype = [ctypes.POINTER(layer), toCInt(randomized)]
+    lib.init_biases.argtype = [ctypes.POINTER(layer), ctypes.c_int]
     lib.init_biases(layer, randomized)
 
 def output(lib, layer, inputs):
-    lib.output.argtype = [ctypes.POINTER(layer), toCDoubleArray(inputs)]
+    lib.output.argtype = [ctypes.POINTER(layer), ctypes.POINTER(ctypes.c_double)]
     lib.output.restype = ctypes.POINTER(ctypes.c_double)
     return lib.output(layer, inputs)
 
 def network_init(lib, nn, randomized):
     if randomized not in [0, 1]:
         raise ValueError(f'{randomized} is not a valid argument')
-    lib.network_init.argtype = [ctypes.POINTER(nn), toCInt(randomized)]
+    lib.network_init.argtype = [ctypes.POINTER(nn), ctypes.c_int]
     lib.network_init(nn, randomized)
 
 def layer_init(lib, nn, layer_num, randomized):
@@ -109,7 +109,8 @@ def layer_init(lib, nn, layer_num, randomized):
         raise ValueError(f'{randomized} is not a valid argument')
     if layer_num >= nn.len or layer_num < 0:
         raise ValueError(f'{layer_num} is not a valid argument')
-    lib.layer_init(ctypes.POINTER(nn), toCInt(layer_num), toCInt(randomized))
+    lib.layer_init.argtype = [ctypes.POINTER(nn), ctypes.c_int, ctypes.c_int]
+    lib.layer_init(nn, layer_num, randomized)
 
 def create_nn(lib, arc):
     return lib.create_nn(arc.encode())
