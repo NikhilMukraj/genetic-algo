@@ -101,7 +101,8 @@ def output(lib, layer, inputs):
 def network_init(lib, nn, randomized):
     if randomized not in [0, 1]:
         raise ValueError(f'{randomized} is not a valid argument')
-    lib.network_init(ctypes.POINTER(nn), toCInt(randomized))
+    lib.network_init.argtype = [ctypes.POINTER(nn), toCInt(randomized)]
+    lib.network_init(nn, randomized)
 
 def layer_init(lib, nn, layer_num, randomized):
     if randomized not in [0, 1]:
