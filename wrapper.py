@@ -95,7 +95,7 @@ def init_biases(lib, layer, randomized):
 
 def output(lib, layer, inputs):
     lib.output.argtype = [ctypes.POINTER(layer), ctypes.POINTER(ctypes.c_double)]
-    lib.output.restype = ctypes.POINTER(ctypes.c_double)
+    lib.output.restype = [ctypes.POINTER(ctypes.c_double)]
     return lib.output(layer, inputs)
 
 def network_init(lib, nn, randomized):
@@ -113,6 +113,7 @@ def layer_init(lib, nn, layer_num, randomized):
     lib.layer_init(nn, layer_num, randomized)
 
 def create_nn(lib, arc):
+    lib.create_nn.argtype = [ctypes.c_char_p]
     return lib.create_nn(arc.encode())
 
 def add_layer(lib, nn, arc_part):
