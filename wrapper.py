@@ -117,6 +117,7 @@ def create_nn(lib, arc):
     return lib.create_nn(arc.encode())
 
 def add_layer(lib, nn, arc_part):
+    lib.add_layer.argtype = [ctypes.POINTER(layer), ctypes.c_char_p]
     lib.add_layer(ctypes.POINTER(nn), arc_part.encode())
 
 def feedforward(lib, nn, inputs):
