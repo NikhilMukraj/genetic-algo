@@ -87,10 +87,11 @@ def init_weights(lib, layer, randomized):
     lib.init_weights.argtype = ctypes.POINTER(layer), toCInt(randomized)
     lib.init_weights(layer, randomized)
 
-def init_bias(lib, layer, randomized):
+def init_biases(lib, layer, randomized):
     if randomized not in [0, 1]:
         raise ValueError(f'{randomized} is not a valid argument')
-    lib.init_bias(ctypes.POINTER(layer), toCInt(randomized))
+    lib.init_biases.argtype = ctypes.POINTER(layer), toCInt(randomized)
+    lib.init_biases(ctypes.POINTER(layer), toCInt(randomized))
 
 def output(lib, layer, inputs):
     return lib.output(ctypes.POINTER(layer), toCDoubleArray(inputs))
