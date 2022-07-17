@@ -57,6 +57,8 @@ class Layer:
 
         return rep
 
+        # needs testing
+
 class NeuralNetwork:
     def __init__(self, arc=None, randomized=False):
         if arc is not None:
