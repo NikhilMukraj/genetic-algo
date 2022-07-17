@@ -10,7 +10,7 @@ def checkValidArc(string):
         raise ValueError(f'{string} is an invalid architecture')
 
 def checkValidArcP(string):
-    valid_arc_p = r'^(\d+i\|)$'
+    valid_arc_p = r'^(\d+[a-hj-zA-Z]\|)$'
     if re.search(valid_arc_p, string):
         return
     else:
