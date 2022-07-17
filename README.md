@@ -75,6 +75,7 @@ custom neural network architecture
 #### Neural Network Struct and Functions
 
 - `nn`
+  - Struct
   - Array of `layer` structs
   - `int` length
 
@@ -95,6 +96,62 @@ custom neural network architecture
   - Calculates output of network given a set of inputs in a `double` array
 
 ### Python Classes and Methods
+
+#### Wrapper
+
+##### C Functions
+
+- `a_relu(double *inputs, double *weights, double bias, int length)`
+  - Returns the ReLU function of the given weights and biases as a `double`
+
+- `a_sigmoid(double *inputs, double *weights, double bias, int length)`
+  - Returns the sigmoid function of the given weights and biases as a `double`
+
+- `double a_tanh(double *inputs, double *weights, double bias, int length)`
+  - Returns the hyperbolic tangent function of the given weights and biases as a `double`
+
+- `layer`
+  - CTypes Struct
+  - `int` input length
+  - `int` length of the layer
+  - `double` array of biases
+  - 2 dimensional `double` array of weights
+  - `char` representing activation type
+
+- `init_weights(struct layer *sheet)`
+  - Void
+  - Generates a 2 dimensional empty array of `double`s for the `layer` struct
+
+- `init_biases(struct layer *sheet)`
+  - Void
+  - Generates an empty array of `double`s for the `layer` struct
+
+- `output(struct layer *sheet, double *inputs)`
+  - Returns a double array
+  - Uses activation from `layer` to calculate the output given an array of `double`s
+
+- `nn`
+  - CTypes Struct
+  - Array of `layer` structs
+  - `int` length
+
+- `network_init(struct nn *network, int randomized)`
+  - Initializes empty arrays of weights and biases from array of `layer`s
+
+- `struct nn create_nn(char *arc)`
+  - Generates an `nn` struct based on a given string architecture
+  - String architecture looks like the following:
+    - `"xi|xa|"` where x is any `int` and a is any valid activation function
+    - `"xa|"` is repeated for each layer in `nn` struct
+
+- `add_layer(struct nn *network, char *arc_part)`
+  - Adds a `layer` struct to `nn`'s array of `layer`s
+  - `*arc_part` must be in the form of `"xa|"`
+
+- `feedforward(struct nn *network, double *inputs)`
+  - Calculates output of network given a set of inputs in a `double` array
+
+
 
 #### Neural Network Class
 
