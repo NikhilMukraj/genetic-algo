@@ -20,7 +20,7 @@ class Layer:
     def __init__(self, arcp=None, randomized=False):
         if arcp is not None:
             checkValidArcP(arcp)
-            # use archetiture
+            # use architecture
             if randomized:
                 # random init
                 pass
@@ -49,7 +49,7 @@ class NeuralNetwork:
     def __init__(self, arc=None, randomized=False):
         if arc is not None:
             checkValidArc(arc)
-            # use archetiture
+            # use architecture
             if randomized:
                 # random init
                 pass
