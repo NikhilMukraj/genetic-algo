@@ -151,7 +151,37 @@ custom neural network architecture
 - `feedforward(struct nn *network, double *inputs)`
   - Calculates output of network given a set of inputs in a `double` array
 
+#### C Conversion Functions and Other C Functions in Python
 
+- `init_c`
+  - Initializes shared object file with C functions
+
+- `toCDouble(value)`
+  - Converts Python numeric to C `double`
+
+- `toCInt(value)`
+  - Converts Python numeric to C `int`
+
+- `toCChar(value)`
+  - Converts Python character to C `char`
+
+- `CValtoPyValue(c_value)`
+  - Generic C value conversion to Python object
+
+- `toCDoubleArray(arr)`
+  - Converts numeric Python array to array of C `double`s
+
+- `CDoubletoPyArray(arr, length)`
+  - Converts C `double` array to Python array given the length as an `int`
+
+- `doubleToArrayToPointer(arr, shape)`
+  - Converts 2 dimensional numeric Python array to 2 dimensional C array of `double`s
+  - `shape` must be a tuple, `(n, m)` that specifies dimensions of array
+
+- `writeToLayer(layer, arr, shape)`
+  - Writes double array to `layer` given `shape`
+  - `shape` must be a tuple, `(n, m)` that specifies dimensions of array
+  - `layer` must be CTypes `layer` struct
 
 #### Neural Network Class
 
