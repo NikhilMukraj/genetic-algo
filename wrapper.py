@@ -55,7 +55,7 @@ def CDoubletoPyArray(arr, length):
     
     return py_arr
 
-def double2ArrayToPointer(arr, shape):
+def doubleToArrayToPointer(arr, shape):
     """
     shape = (n, m)
     """
@@ -77,7 +77,7 @@ def writeToLayer(layer, arr, shape):
     shape = (n,m)
     """
     if layer.layer_len == n and layer.input_len == m:
-        layer.weights = double2ArrayToPointer(arr, shape)
+        layer.weights = doubleToArrayToPointer(arr, shape)
     else:
         raise ValueError(f'Weights with shape of {shape}')
 
