@@ -43,7 +43,19 @@ class Layer:
         # | layer input: |
         # | layer len:   |
         # +--------------+
-        raise NotImplementedError()
+        rep = ''
+        keys = {'activation: ': self.layer.activation,
+                'layer input: ': self.layer.layer_input,
+                'layer len: ': self.layer.layer_len}
+
+        max_len = max([i + str(j) for i, j in keys.items()], key=len)
+        bounds = '+' + ((max_len + 2) * '-') + '+'
+        rep += bounds + '\n'
+        for i in keys.items():
+            rep += f'| {i[0]}{i[1]} |\n'
+        rep += bounds + '\n'
+
+        return rep
 
 class NeuralNetwork:
     def __init__(self, arc=None, randomized=False):
