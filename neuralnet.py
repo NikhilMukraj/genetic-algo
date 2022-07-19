@@ -102,14 +102,28 @@ class NeuralNetwork:
     def __repr__(self):
         # format structure:
         # +--------------+
-        # | nn.len:      |
+        # | nn length:   |
         # +--------------+
         # | activation:  |
         # | layer input: |
         # | layer len:   |
         # +--------------+
         # repeat until gone through all layers
-        raise NotImplementedError()
+        rep = '+' + ('-' * (len('nn length: ') + len(str(self.len)) + 2)) + '+\n'
+        rep += f'| nn length: {self.len} |\n'
+        for n in range(self.len):
+            keys = {'activation: ': self.layer.activation,
+                    'layer input: ': self.layer.layer_input,
+                    'layer len: ': self.layer.layer_len}
+
+            max_len = max([i + str(j) for i, j in keys.items()], key=len)
+            bounds = '+' + ((max_len + 2) * '-') + '+'
+            rep += bounds + '\n'
+            for i in keys.items():
+                rep += f'| {i[0]}{i[1]} |\n'
+            rep += bounds + '\n'
+
+        return rep
 
     def load(self, filename):
         raise NotImplementedError
