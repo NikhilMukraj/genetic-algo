@@ -96,7 +96,7 @@ class NeuralNetwork:
         raise NotImplementedError()
 
     def feedforward(self, input, timed=False):
-        # use feedforward from c
+        # use feedforward from c wrapper
         raise NotImplementedError()
 
     def __repr__(self):
