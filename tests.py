@@ -44,3 +44,5 @@ nn.layers[0] = layer
 nn.layers[1] = layer2
 
 print(nn.layers[0].input_len, nn.layers[1].input_len)
+
+# classes need testing
