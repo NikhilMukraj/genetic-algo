@@ -21,28 +21,29 @@ answer = sig(inputs, weights, bias, length)
 print(answer)
 '''
 
-layer = w.LayerStruct()
-layer.input_len = w.toCInt(1)
-layer.layer_len = w.toCInt(3)
-weights = np.random.uniform(0,1,size=(layer.layer_len, layer.input_len))
-layer.weights = w.double2ArrayToPointer(weights, (layer.layer_len, layer.input_len))
-layer.biases = w.toCDoubleArray([1, 1, 1])
-layer.activation = w.toCChar('r')
+def struct_test():
+    layer = w.LayerStruct()
+    layer.input_len = w.toCInt(1)
+    layer.layer_len = w.toCInt(3)
+    weights = np.random.uniform(0,1,size=(layer.layer_len, layer.input_len))
+    layer.weights = w.double2ArrayToPointer(weights, (layer.layer_len, layer.input_len))
+    layer.biases = w.toCDoubleArray([1, 1, 1])
+    layer.activation = w.toCChar('r')
 
-layer2 = w.LayerStruct()
-layer2.input_len = w.toCInt(3)
-layer2.layer_len = w.toCInt(3)
-weights2 = np.random.uniform(0,1,size=(layer2.layer_len, layer2.input_len))
-layer2.weights = w.double2ArrayToPointer(weights, (layer2.layer_len, layer2.input_len))
-layer2.biases = w.toCDoubleArray([1, 1, 1])
-layer2.activation = w.toCChar('s')
+    layer2 = w.LayerStruct()
+    layer2.input_len = w.toCInt(3)
+    layer2.layer_len = w.toCInt(3)
+    weights2 = np.random.uniform(0,1,size=(layer2.layer_len, layer2.input_len))
+    layer2.weights = w.double2ArrayToPointer(weights, (layer2.layer_len, layer2.input_len))
+    layer2.biases = w.toCDoubleArray([1, 1, 1])
+    layer2.activation = w.toCChar('s')
 
-nn = w.NNStruct()
-layers = (w.LayerStruct * 2)()
-nn.layers = c.cast(layers, c.POINTER(w.LayerStruct))
-nn.layers[0] = layer
-nn.layers[1] = layer2
+    nn = w.NNStruct()
+    layers = (w.LayerStruct * 2)()
+    nn.layers = c.cast(layers, c.POINTER(w.LayerStruct))
+    nn.layers[0] = layer
+    nn.layers[1] = layer2
 
-print(nn.layers[0].input_len, nn.layers[1].input_len)
+    print(nn.layers[0].input_len, nn.layers[1].input_len)
 
 # classes need testing
