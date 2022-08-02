@@ -47,3 +47,9 @@ def struct_test():
     print(nn.layers[0].input_len, nn.layers[1].input_len)
 
 # classes need testing
+
+def main():
+    pass
+
+if __name__ == '__main__':
+    main()
